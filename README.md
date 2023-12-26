@@ -30,3 +30,7 @@ npm run preview
 
 # 📷截图
 ![Alt text](./docs/images/image.png)
+
+# ☕未来计划
+- [ ] 支持环境变量
+- [ ] 支持markdown
