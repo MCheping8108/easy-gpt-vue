@@ -4,8 +4,8 @@ import OpenAI from 'openai';
 require('dotenv').config();
 
 const openai = new OpenAI({
-  baseURL: 'https://api.nextapi.fun/',
-  apiKey: '', // This is the default and can be omitted
+  baseURL: process.env.BASE_URL,
+  apiKey: process.env.OPENAI_API_KEY, // This is the default and can be omitted
   dangerouslyAllowBrowser: true
 });
 

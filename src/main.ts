@@ -2,5 +2,8 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
+import dotenv from 'dotenv'
+
+dotenv.config({ path: './.env' })
 
 createApp(App).mount('#app')
