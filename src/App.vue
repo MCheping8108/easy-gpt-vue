@@ -1,11 +1,9 @@
 <script setup lang="ts" >
 import OpenAI from 'openai';
 
-require('dotenv').config();
-
 const openai = new OpenAI({
-  baseURL: process.env.BASE_URL,
-  apiKey: process.env.OPENAI_API_KEY, // This is the default and can be omitted
+  // baseURL: 'https://api.nextapi.fun',
+  apiKey: 'sk-xxx or ak-xxx', // This is the default and can be omitted
   dangerouslyAllowBrowser: true
 });
 
@@ -30,7 +28,7 @@ async function main() {
 <div class="hander"><h1>EASY-GPT-VUE</h1></div>
 
 <div class="content">
-  
+  <p style="text-align: center;">此处为回答</p>
 </div>
 
 <button @click="main();" class="btn">开始回答</button>
@@ -42,15 +40,22 @@ async function main() {
   text-align: center;
   margin-top: 100px;
   font-size: 50px;
-  color: #f00;
+  color: #eee;
+  text-shadow: #888 0 0 10px;
 }
 
 .content {
-  border: 5px solid black;
+  text-shadow: #888 0 0 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  color: #eee;
+  border: 2.5px solid #eee;
+  border-radius: 10px;
   box-shadow: 10px 10px 5px #888;
   /* text-align: center; */
   margin-top: 100px;
   font-size: 30px;
+  backdrop-filter: blur(7.5px);
 }
 
 .btn {

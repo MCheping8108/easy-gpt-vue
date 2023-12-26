@@ -29,8 +29,8 @@ npm run preview
 ```
 
 # 📷截图
-![Alt text](./docs/images/image.png)
+![Alt text](./docs/images/image2.png)
 
 # ☕未来计划
-- [ ] 支持环境变量
+~~支持环境变量~~（浏览器不识别require）
 - [ ] 支持markdown
