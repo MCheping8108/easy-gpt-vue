@@ -1,24 +1,33 @@
-<script setup lang="ts" >
+<script lang="ts" >
 import OpenAI from 'openai';
+import setting from './components/setting.vue';
 
-const openai = new OpenAI({
-  // baseURL: 'https://api.nextapi.fun',
-  apiKey: 'sk-xxx or ak-xxx', // This is the default and can be omitted
-  dangerouslyAllowBrowser: true
-});
+export default {
+  data() {
+    return {
+      responseContent: '',
+    };
+  },
+  methods: {
+    async main() {
+      const openai = new OpenAI({
+        baseURL: `${setting.base_url}`,
+        apiKey: `${setting.api_key}`,
+        dangerouslyAllowBrowser: true,
+      });
 
-async function main() {
-  const chatCompletion = await openai.chat.completions.create({
-    messages: [{ role: 'user', content: '你好，你是来自哪个模型？' }],
-    model: 'gpt-3.5-turbo',
-  });
-  // console.log(chatCompletion.choices[0].message?.content);
-  const content = document.querySelector('.content') as HTMLDivElement
-  const messageContent = chatCompletion.choices[0].message?.content;
-  if (messageContent !== null && messageContent !== undefined) {
-    content.innerHTML = messageContent;
-  }
-}
+      const chatCompletion = await openai.chat.completions.create({
+        messages: [{ role: 'user', content: '你好，你是来自哪个模型？' }],
+        model: 'gpt-3.5-turbo',
+      });
+
+      const messageContent = chatCompletion.choices[0].message?.content;
+      if (messageContent !== null && messageContent !== undefined) {
+        this.responseContent = messageContent;
+      }
+    },
+  },
+};
 
 // main();
 
@@ -29,6 +38,7 @@ async function main() {
 
 <div class="content">
   <p style="text-align: center;">此处为回答</p>
+  {{ responseContent }}
 </div>
 
 <button @click="main();" class="btn">开始回答</button>
