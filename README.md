@@ -37,5 +37,5 @@ npm run app:build
 ![Alt text](./docs/images/image2.png)
 
 # ☕未来计划
-- [ ] 支持.env环境变量
+- [x] 支持利用vue环境变量
 - [ ] 支持markdown
