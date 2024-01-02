@@ -3,3 +3,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
+
+#response {
+    margin: 50px;
+}

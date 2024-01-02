@@ -14,7 +14,9 @@
     "app:build": "tauri build"
   },
   "dependencies": {
+    "@vue/runtime-dom": "^3.4.3",
     "dotenv": "^16.3.1",
+    "markdown-it": "^14.0.0",
     "openai": "^4.24.1",
     "vue": "^3.3.11"
   },

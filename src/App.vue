@@ -1,6 +1,7 @@
 <script lang="ts" >
 import OpenAI from 'openai';
 import setting from './components/setting.vue';
+import MarkdownIt from 'markdown-it';
 
 export default {
   data() {
@@ -17,15 +18,19 @@ export default {
       });
 
       const chatCompletion = await openai.chat.completions.create({
-        messages: [{ role: 'user', content: '你好，你是来自哪个模型？' }],
+        messages: [{ role: 'user', content: 'npm包管理器如何安装依赖' }],
         model: 'gpt-3.5-turbo',
       });
 
       const messageContent = chatCompletion.choices[0].message?.content;
       if (messageContent !== null && messageContent !== undefined) {
-        this.responseContent = messageContent;
+        this.responseContent = this.parseMarkdown(messageContent);
       }
     },
+    parseMarkdown(content) {
+      const md = new MarkdownIt();
+      return md.render(content);
+    }
   },
 };
 
@@ -38,7 +43,7 @@ export default {
 
 <div class="content">
   <p style="text-align: center;">此处为回答</p>
-  {{ responseContent }}
+  <div v-html="responseContent" id="response"></div>
 </div>
 
 <button @click="main();" class="btn">开始回答</button>
