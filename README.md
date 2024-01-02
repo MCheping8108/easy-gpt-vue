@@ -39,4 +39,4 @@ npm run app:build
 
 # ☕未来计划
 - [x] 支持利用vue环境变量
-- [ ] 支持markdown
+- [x] 支持markdown
