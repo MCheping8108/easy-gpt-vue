@@ -35,7 +35,7 @@ npm run app:build
 ```
 
 # 📷截图
-![Alt text](./docs/images/image2.png)
+![Alt text](./docs/images/image3.png)
 
 # ☕未来计划
 - [x] 支持利用vue环境变量
