@@ -1,7 +1,9 @@
 {
   "files": [],
   "compilerOptions": {
-    "types": ["node"]
+    "types": ["node"],
+    "noImplicitAny": false,
+    "strict": false
   },
   "references": [
     {

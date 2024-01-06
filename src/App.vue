@@ -35,7 +35,7 @@ export default {
         this.responseContent = this.parseMarkdown(messageContent);
       }
     },
-    parseMarkdown(content) {
+    parseMarkdown(content: string) {
       const md = new MarkdownIt();
       return md.render(content);
     }
