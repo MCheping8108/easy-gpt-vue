@@ -1,0 +1,9 @@
+body {
+    background: url('./image/background2.jpg') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#response {
+    margin: 50px;
+}
