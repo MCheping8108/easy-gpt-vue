@@ -1,44 +1,16 @@
-# 🌟easy-gpt-vue
-利用vite+vue写出来简易的GPT网页，你可以自己DIY这个GPT网页，还能把DIV的网页打包成软件
+# Tauri + Vue 3 + TypeScript
 
-# 🚀快速开始
-> ⚠友情提醒⚠：需要在`./src/components/template_setting.vue`配置一下URL与KEY，并且`template_setting.vue`改成`setting.vue`，否则部署时报错找不到文件
-## 🏠本地部署
-下载代码
-```bash
-git clone git@github.com:MCheping8108/easy-gpt-vue.git
-```
+This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-安装依赖
-```bash
-npm install
-```
+## Recommended IDE Setup
 
-在本地开发(仅适用于开发)
-```bash
-npm run dev
-```
+- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
 
-编译
-```bash
-npm run build
-```
+## Type Support For `.vue` Imports in TS
 
-开启服务器
-```bash
-npm run preview
-```
+Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
 
-打包软件
-```bash
-npm run app:build
-```
+1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
+2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
 
-# 📷截图
-![Alt text](./docs/images/image3.png)
-
-# ☕未来计划
-- [x] 支持利用vue环境变量
-- [x] 支持markdown
-- [x] 支持输入文字回答
-- [x] 支持切换模型
+You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).

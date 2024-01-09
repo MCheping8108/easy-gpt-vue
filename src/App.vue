@@ -1,174 +1,52 @@
-<script lang="ts" >
-import OpenAI from 'openai';
-import setting from './components/setting.vue';
-import MarkdownIt from 'markdown-it';
-
-export default {
-  data() {
-    return {
-      modelList: ['请选择语言模型', 'gpt-3.5-turbo', 'gpt-4'],
-      selectedModel: '请选择语言模型',
-      responseContent: '',
-    };
-  },
-  methods: {
-    async main() {
-      if (this.selectedModel === this.modelList[0]) {
-        alert('该模型无效');
-        return;
-      }
-      const openai = new OpenAI({
-        baseURL: `${setting.base_url}`,
-        apiKey: `${setting.api_key}`,
-        dangerouslyAllowBrowser: true,
-      });
-
-      const textInput = (document.getElementById('textInput') as HTMLInputElement).value;
-
-      const chatCompletion = await openai.chat.completions.create({
-        messages: [{ role: 'user', content: textInput }],
-        model: this.selectedModel,
-      });
-
-      const messageContent = chatCompletion.choices[0].message?.content;
-      if (messageContent !== null && messageContent !== undefined) {
-        this.responseContent = this.parseMarkdown(messageContent);
-      }
-    },
-    parseMarkdown(content: string) {
-      const md = new MarkdownIt();
-      return md.render(content);
-    }
-  },
-};
-
-// main();
-
+<script setup lang="ts">
+// This starter template is using Vue 3 <script setup> SFCs
+// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+import Greet from "./components/Greet.vue";
 </script>
 
 <template>
-<div class="hander"><h1>EASY-GPT-VUE</h1></div>
+  <div class="container">
+    <h1>Welcome to Tauri!</h1>
 
-<div class="container">
-    <!-- <label for="modelSelect">选择模型：</label> -->
-    <select id="modelSelect" v-model="selectedModel">
-        <option v-for="model in modelList" :key="model" :value="model">{{ model }}</option>
-    </select>
-</div>
+    <div class="row">
+      <a href="https://vitejs.dev" target="_blank">
+        <img src="/vite.svg" class="logo vite" alt="Vite logo" />
+      </a>
+      <a href="https://tauri.app" target="_blank">
+        <img src="/tauri.svg" class="logo tauri" alt="Tauri logo" />
+      </a>
+      <a href="https://vuejs.org/" target="_blank">
+        <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+      </a>
+    </div>
 
-<div class="content">
-  <p style="text-align: center;">此处为回答</p>
-  <div v-html="responseContent" id="response"></div>
-</div>
-<div class="textdev">
-  <textarea name="" id="textInput" cols="30" rows="10"></textarea>
-</div>
-<button @click="main();" class="btn">开始回答</button>
+    <p>Click on the Tauri, Vite, and Vue logos to learn more.</p>
 
+    <p>
+      Recommended IDE setup:
+      <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>
+      +
+      <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
+      +
+      <a href="https://github.com/tauri-apps/tauri-vscode" target="_blank"
+        >Tauri</a
+      >
+      +
+      <a href="https://github.com/rust-lang/rust-analyzer" target="_blank"
+        >rust-analyzer</a
+      >
+    </p>
+
+    <Greet />
+  </div>
 </template>
 
 <style scoped>
-.hander {
-  text-align: center;
-  margin-top: 100px;
-  font-size: 50px;
-  color: #eee;
-  text-shadow: #888 0 0 10px;
+.logo.vite:hover {
+  filter: drop-shadow(0 0 2em #747bff);
 }
 
-.content {
-  text-shadow: #888 0 0 20px;
-  margin-left: 50px;
-  margin-right: 50px;
-  color: #eee;
-  border: 2.5px solid #eee;
-  border-radius: 10px;
-  box-shadow: 10px 10px 5px #888;
-  /* text-align: center; */
-  margin-top: 100px;
-  font-size: 30px;
-  backdrop-filter: blur(7.5px);
-  transition: 0.7s;
-}
-
-.btn {
-  margin-top: 100px;
-  margin-left: 45%;
-  font-size: 30px;
-  color: #f00;
-  background: #fff;
-  border: 5px solid #f00;
-  border-radius: 10px;
-  box-shadow: 10px 10px 5px #888;
-  padding: 10px 20px;
-  transition: all 0.5s;
-}
-
-.btn:hover {
-  background: #f00;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 10px 10px 5px #888;
-  transition: all 0.5s;
-}
-
-.container {
-  text-align: center;
-}
-
-.container label{
-  padding: 50px;
-  text-align: center;
-  margin-top: 100px;
-  text-shadow: #888 0 0 20px;
-  margin-left: 50px;
-  margin-right: 50px;
-  color: #eee;
-  border: 2.5px solid #eee;
-  border-radius: 10px;
-  box-shadow: 10px 10px 5px #888;
-}
-
-.container select {
-  background: none;
-  text-align: center;
-  /* margin-top: 100px; */
-  text-shadow: #888 0 0 20px;
-  margin-left: 50px;
-  margin-right: 50px;
-  color: #eee;
-  border: 2.5px solid #eee;
-  border-radius: 10px;
-  box-shadow: 10px 10px 5px #888;
-  /* text-align: center; */
-  margin-top: 100px;
-  font-size: 30px;
-  backdrop-filter: blur(7.5px);
-}
-
-option {
-  background: none;
-  color: #eee;
-}
-
-.textdev {
-  text-align: center;
-}
-
-textarea {
-  background: none;
-  text-align: center;
-  margin-top: 100px;
-  text-shadow: #888 0 0 20px;
-  margin-left: 50px;
-  margin-right: 50px;
-  color: #eee;
-  border: 2.5px solid #eee;
-  border-radius: 10px;
-  box-shadow: 10px 10px 5px #888;
-  /* text-align: center; */
-  margin-top: 100px;
-  font-size: 30px;
-  backdrop-filter: blur(7.5px);
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #249b73);
 }
 </style>
