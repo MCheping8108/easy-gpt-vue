@@ -14,3 +14,14 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
 
 You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+
+# What's new?
+Tauri-app released V2.0 beta version, you can use Tauri-app to package into `.apk` or `.ipa` installation package file.
+
+## How can I build it?
+
+Please read the official documentation carefully before compiling the mobile app: https://beta.tauri.app/guides/prerequisites/#configure-for-mobile-targets
+
+If you want to package it as a mobile app, you can run `npm run tauri android build`; if you are an iOS user, run `npm run tauri ios build`.
+
+If you want development mobile, you can run `npm run tauri android dev` or `npm run tauri ios dev`.
