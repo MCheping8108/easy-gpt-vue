@@ -1,7 +1,7 @@
 [package]
 name = "easy-gpt-vue"
-version = "0.0.0"
-description = "A Tauri App"
+version = "1.0.0"
+description = "非常简单的GPT"
 authors = ["you"]
 license = ""
 repository = ""
