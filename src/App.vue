@@ -6,17 +6,12 @@ import MarkdownIt from 'markdown-it';
 export default {
   data() {
     return {
-      modelList: ['请选择语言模型', 'gpt-3.5-turbo', 'gpt-4'],
-      selectedModel: '请选择语言模型',
+      modelList: ['gpt-3.5-turbo', 'gpt-4'],
       responseContent: '',
     };
   },
   methods: {
     async main() {
-      if (this.selectedModel === this.modelList[0]) {
-        alert('该模型无效');
-        return;
-      }
       const openai = new OpenAI({
         baseURL: `${setting.base_url}`,
         apiKey: `${setting.api_key}`,
@@ -27,7 +22,7 @@ export default {
 
       const chatCompletion = await openai.chat.completions.create({
         messages: [{ role: 'user', content: textInput }],
-        model: this.selectedModel,
+        model: this.modelList[0],
       });
 
       const messageContent = chatCompletion.choices[0].message?.content;

@@ -2,7 +2,7 @@
 利用vite+vue写出来简易的GPT网页，你可以自己DIY这个GPT网页，还能把DIV的网页打包成软件
 
 # 🚀快速开始
-> ⚠友情提醒⚠：需要在`./src/components/template_setting.vue`配置一下URL与KEY，并且`template_setting.vue`改成`setting.vue`，否则部署时报错找不到文件
+> ⚠友情提醒⚠：需要在`setting.vue`修改配置
 ## 🏠本地部署
 下载代码
 ```bash

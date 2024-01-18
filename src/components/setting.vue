@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  base_url: "https://api.nextapi.fun",
-  api_key: "ak-xxx",
+  base_url: "https://api.example.com",
+  api_key: "",
 };
 </script>
