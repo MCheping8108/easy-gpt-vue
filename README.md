@@ -38,7 +38,7 @@ npm run app:build
 ![Alt text](./docs/images/image3.png)
 
 # ☕未来计划
-- [x] 支持利用vue环境变量
+- [x] 正式支持`.env`环境变量
 - [x] 支持markdown
 - [x] 支持输入文字回答
 - [x] 支持切换模型
