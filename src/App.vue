@@ -1,31 +1,50 @@
 <script lang="ts" >
 import OpenAI from 'openai';
-import setting from './components/setting.vue';
 import MarkdownIt from 'markdown-it';
+import { ElNotification } from 'element-plus';
+
+import "element-plus/theme-chalk/src/base.scss";
+import "element-plus/theme-chalk/src/notification.scss";
 
 export default {
   data() {
     return {
-      modelList: ['gpt-3.5-turbo', 'gpt-4'],
+      modelList: ['请选择模型', 'gpt-3.5-turbo', 'gpt-3.5-turbo-0301', 'gpt-4','text-embedding-ada-002'],
+      selectedModel: '请选择模型',
       responseContent: '',
     };
   },
   methods: {
     async main() {
       const openai = new OpenAI({
-        baseURL: `${setting.base_url}`,
-        apiKey: `${setting.api_key}`,
+        baseURL: import.meta.env.VITE_BASE_URL,
+        apiKey: import.meta.env.VITE_OPENAI_API_KEY,
         dangerouslyAllowBrowser: true,
       });
+
+      const Warning = () => {
+        ElNotification({
+          title: '无效',
+          message: '你选择的模型无效，请重新选择',
+          type: 'warning',
+        });
+      };
+      
+      
+
+      if (this.selectedModel === this.modelList[0]) {
+        Warning();
+        return;
+      }
 
       const textInput = (document.getElementById('textInput') as HTMLInputElement).value;
 
       const chatCompletion = await openai.chat.completions.create({
         messages: [{ role: 'user', content: textInput }],
-        model: this.modelList[0],
+        model: this.selectedModel,
       });
-
-      const messageContent = chatCompletion.choices[0].message?.content;
+      console.log(chatCompletion);
+      const messageContent = chatCompletion.choices[0]?.message?.content;
       if (messageContent !== null && messageContent !== undefined) {
         this.responseContent = this.parseMarkdown(messageContent);
       }
@@ -36,6 +55,8 @@ export default {
     }
   },
 };
+
+
 
 // main();
 
