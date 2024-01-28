@@ -5,5 +5,129 @@ body {
 }
 
 #response {
-    margin: 50px;
+    margin: 20px;
+}
+
+.hander {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 50px;
+    color: #eee;
+    text-shadow: #888 0 0 10px;
+}
+
+.content {
+    text-shadow: #888 0 0 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: #eee;
+    border: 2.5px solid #eee;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888;
+    /* text-align: center; */
+    margin-top: 100px;
+    font-size: 30px;
+    backdrop-filter: blur(7.5px);
+    --webkit-backdrop-filter: blur(7.5px);
+    --moz-backdrop-filter: blur(7.5px);
+    transition: 0.7s;
+}
+
+.btn {
+    margin-top: 100px;
+    margin-left: 25%;
+    font-size: 30px;
+    color: #f00;
+    background: #fff;
+    border: 5px solid #f00;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888;
+    padding: 10px 20px;
+    transition: all 0.5s;
+}
+
+.btn:hover {
+    background: #f00;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 10px 10px 5px #888;
+    transition: all 0.5s;
+}
+
+.container {
+    text-align: center;
+}
+
+.container label {
+    padding: 50px;
+    text-shadow: #888 0 0 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    /* color: #eee; */
+    border: 2.5px solid #eee;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888;
+}
+
+.container select {
+    background: none;
+    text-align: center;
+    /* margin-top: 100px; */
+    text-shadow: #888 0 0 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: #eee;
+    border: 2.5px solid #eee;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888;
+    /* text-align: center; */
+    margin-top: 100px;
+    font-size: 30px;
+    backdrop-filter: blur(7.5px);
+    --webkit-backdrop-filter: blur(7.5px);
+    --moz-backdrop-filter: blur(7.5px);
+}
+
+option {
+    background: none;
+    color: #eee;
+}
+
+.textdev {
+    text-align: center;
+}
+
+textarea {
+    background: none;
+    text-align: center;
+    margin-top: 100px;
+    text-shadow: #888 0 0 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: #eee;
+    border: 2.5px solid #eee;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888;
+    /* text-align: center; */
+    margin-top: 100px;
+    font-size: 30px;
+    backdrop-filter: blur(7.5px);
+    --webkit-backdrop-filter: blur(7.5px);
+    --moz-backdrop-filter: blur(7.5px);
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        font-size: 20px;
+    }
+    .textdev {
+        margin-right: 0px;
+        margin-left: 0px;
+        font-size: 20px;
+    }
+    #textInput {
+        margin-right: 0px;
+        margin-left: 0px;
+        font-size: 20px;
+    }
 }

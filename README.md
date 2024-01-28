@@ -42,3 +42,6 @@ npm run app:build
 - [x] 支持markdown
 - [x] 支持输入文字回答
 - [x] 支持切换模型
+- [x] 支持密码输入
+- [x] 将ChatGPT回答保存至本地
+- [x] 适配手机端

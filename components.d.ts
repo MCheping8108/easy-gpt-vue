@@ -7,6 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Setting: typeof import('./src/components/setting.vue')['default']
+    ElInput: typeof import('element-plus/es')['ElInput']
   }
 }
