@@ -11,9 +11,6 @@
     "version": "0.1.0"
   },
   "tauri": {
-    "allowlist": {
-      "all": false
-    },
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
@@ -34,6 +31,7 @@
       "macOS": {
         "entitlements": null,
         "exceptionDomain": "",
+        "files": {},
         "frameworks": [],
         "providerShortName": null,
         "signingIdentity": null
@@ -49,9 +47,6 @@
     },
     "security": {
       "csp": null
-    },
-    "updater": {
-      "active": false
     },
     "windows": [
       {
