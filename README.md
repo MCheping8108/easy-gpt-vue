@@ -45,3 +45,16 @@ npm run app:build
 - [x] 支持密码输入
 - [x] 将ChatGPT回答保存至本地
 - [x] 适配手机端
+- [x] 支持移动端应用(不能自动签名)
+
+# Android/IOS
+
+本地开发
+```bash
+npm run tauri android/ios dev
+```
+
+打包
+```bash
+npm run tauri android/ios build
+```
