@@ -46,6 +46,7 @@ npm run app:build
 - [x] 将ChatGPT回答保存至本地
 - [x] 适配手机端
 - [x] 支持移动端应用(不能自动签名)
+- [ ] 接入kimiAI
 
 # Android/IOS
 

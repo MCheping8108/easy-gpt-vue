@@ -8,5 +8,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ElInput: typeof import('element-plus/es')['ElInput']
+    KimiAI: typeof import('./src/components/kimiAI.vue')['default']
   }
 }
