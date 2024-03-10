@@ -15,6 +15,7 @@ export default {
         "gpt-3.5-turbo-0301",
         "gpt-4",
         "text-embedding-ada-002",
+        "moonshot-v1-8k"
       ],
       selectedModel: "请选择模型",
       responseContent: "",
@@ -25,8 +26,8 @@ export default {
       const password = prompt("请输入密码");
       if (password === import.meta.env.VITE_PASSWORD) {
         const openai = new OpenAI({
-          baseURL: import.meta.env.VITE_BASE_URL,
-          apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+          baseURL: import.meta.env.VITE_BASE_URL || import.meta.env.VITE_KIMI_URL,
+          apiKey: import.meta.env.VITE_OPENAI_API_KEY || import.meta.env.VITE_KIMI_KEY,
           dangerouslyAllowBrowser: true,
         });
 
@@ -52,7 +53,8 @@ export default {
           model: this.selectedModel,
         });
 
-        const messageContent = chatCompletion.choices[0]?.message?.content;
+        const messageContent = chatCompletion.choices[0]?.message.content;
+        console.log(messageContent);
         if (messageContent !== null && messageContent !== undefined) {
           this.responseContent = this.parseMarkdown(messageContent);
         }
